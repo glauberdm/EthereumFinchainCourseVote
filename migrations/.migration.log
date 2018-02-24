@@ -1,0 +1,56 @@
+Compiling ./contracts/ColorDecision.sol...
+Compiling ./contracts/Migrations.sol...
+
+Compilation warnings encountered:
+
+/home/glauber/job/finchain/courses/ethereum/EthereumFinchainCourseVote/contracts/ColorDecision.sol:51:53: Warning: This declaration shadows an existing declaration.
+    function proposalsLength() public view returns (uint proposalsLength){
+                                                    ^------------------^
+/home/glauber/job/finchain/courses/ethereum/EthereumFinchainCourseVote/contracts/ColorDecision.sol:51:5: The shadowed declaration is here:
+    function proposalsLength() public view returns (uint proposalsLength){
+    ^
+Spanning multiple lines.
+
+,/home/glauber/job/finchain/courses/ethereum/EthereumFinchainCourseVote/contracts/ColorDecision.sol:97:9: Warning: This declaration shadows an existing declaration.
+        Voter storage delegate = voters[to];
+        ^--------------------^
+/home/glauber/job/finchain/courses/ethereum/EthereumFinchainCourseVote/contracts/ColorDecision.sol:70:5: The shadowed declaration is here:
+    function delegate(address to) public {
+    ^
+Spanning multiple lines.
+
+,/home/glauber/job/finchain/courses/ethereum/EthereumFinchainCourseVote/contracts/ColorDecision.sol:136:22: Warning: This declaration shadows an existing declaration.
+            returns (uint winningProposal)
+                     ^------------------^
+/home/glauber/job/finchain/courses/ethereum/EthereumFinchainCourseVote/contracts/ColorDecision.sol:135:5: The shadowed declaration is here:
+    function winningProposal() public view
+    ^
+Spanning multiple lines.
+
+,/home/glauber/job/finchain/courses/ethereum/EthereumFinchainCourseVote/contracts/ColorDecision.sol:152:22: Warning: This declaration shadows an existing declaration.
+            returns (bytes32 winnerName)
+                     ^----------------^
+/home/glauber/job/finchain/courses/ethereum/EthereumFinchainCourseVote/contracts/ColorDecision.sol:151:5: The shadowed declaration is here:
+    function winnerName() public view
+    ^
+Spanning multiple lines.
+
+
+Writing artifacts to ./build/contracts
+
+Using network 'ropsten'.
+
+Running migration: 1_initial_migration.js
+  Deploying Migrations...
+  ... 0xb92dd0a58db6cc0ac198f7f361a84883310b47616ed26a3e4e70ca84f9ed14ce
+  Migrations: 0x6112b7440ac509596dceda753b31e215906ce1c8
+Saving successful migration to network...
+  ... 0xc112d4846047deb837954c7afdd533fb1ea030755b2457d383e9ac952246f764
+Saving artifacts...
+Running migration: 2_color_decision.js
+  Deploying ColorDecision...
+  ... 0x4a02705bd2226ad0eca2bf0ee9319498c96772bf9fdec21d8bb6bfbb5768cba0
+  ColorDecision: 0x11953363afa3e0cf4e5921c49bd0898e7dec26f4
+Saving successful migration to network...
+  ... 0x4e11cee5af32415fa459934ef5a4889e539a27b6d46973bcdbba9421dcb742e9
+Saving artifacts...

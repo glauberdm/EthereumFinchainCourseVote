@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Ethreum Finchain Course Vote - Decision Color</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div id="template">
+        <div class="text-center">
+          <div id="panel-wallet" class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title">Ethereum Finchain Course Vote - Color Decision</h2>
+            </div>
+            <div class="panel-body">
+              <h3>
+                <strong>Vote by clicking the color</strong>
+              </h3>
+              <strong>Your Address (Vote ID)</strong>:
+              <span class="wallet-address">0x0</span>
+              <br/>
+              <br/>
+              <br/>
+              <div class="proposals"></div>
+              <br/>
+              <div>
+                <br/>
+                <br/>
+                <span class="output-message" style="color:red;font-weight: bold;" />
+              </div>
+              <hr>
+              <strong>Admin</strong>
+              </hr>
+              <hr/>
+              <div>
+                <hr>Give Right to Vote</hr>
+                <br/>
+                <br/>
+                <input class="addressTo" type="text" size="55" placeholder="address">
+                <br/>
+                <br/>
+                <button class="btn btn-default btn-to-vote" type="button">Send</button>
+                <br/>
+                <br/>
+                <span class="output-to-vote" style="color:red;font-weight: bold;" />
+              </div>
+              <div>
+                <hr>Results</hr>
+                <br/>
+                <br/>
+                <button class="btn btn-default btn-winner" type="button">Show Winner</button>
+              </div>
+              <br/>
+              <br/>
+              <div>
+                <span class="output-winner" style="color:red;font-weight: bold;" />
+              </div>
+              <div class="winner"></div>
+              <br/>
+              <br/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/web3.min.js"></script>
+  <script src="js/truffle-contract.js"></script>
+  <!-- JS QRCode -->
+  <script src="http://code.jsqr.de/jsqr-0.2-min.js" type="text/javascript"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

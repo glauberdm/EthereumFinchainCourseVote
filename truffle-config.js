@@ -1,6 +1,6 @@
 const HDWalletProvider = require("truffle-hdwallet-provider-privkey");
 
-const privateKeyRopsten = ["86a87f6555775946810f72818625a1ff5802aa205700adb257dd047353b7e18e"];
+const privateKeyRopsten = [""];
 const providerRopsten = new HDWalletProvider(privateKeyRopsten, 'https://ropsten.infura.io/9aWsXOvBnB8RM5Md8Ruj')
 
 

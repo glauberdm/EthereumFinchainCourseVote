@@ -48,7 +48,7 @@ contract ColorDecision {
         }
     }
 
-    function proposalsLength() public view returns (uint proposalsLength){
+    function proposalsLength() public view returns (uint _proposalsLength){
         return proposals.length;
     }
 
@@ -94,15 +94,15 @@ contract ColorDecision {
         // modifies `voters[msg.sender].voted`
         sender.voted = true;
         sender.delegate = to;
-        Voter storage delegate = voters[to];
-        if (delegate.voted) {
+        Voter storage _delegate = voters[to];
+        if (_delegate.voted) {
             // If the delegate already voted,
             // directly add to the number of votes
-            proposals[delegate.vote].voteCount += sender.weight;
+            proposals[_delegate.vote].voteCount += sender.weight;
         } else {
             // If the delegate did not vote yet,
             // add to her weight.
-            delegate.weight += sender.weight;
+            _delegate.weight += sender.weight;
         }
     }
 
@@ -133,14 +133,14 @@ contract ColorDecision {
     /// @dev Computes the winning proposal taking all
     /// previous votes into account.
     function winningProposal() public view
-            returns (uint winningProposal)
+            returns (uint _winningProposal)
     {
         require(hasVotes());
         uint winningVoteCount = 0;
         for (uint p = 0; p < proposals.length; p++) {
             if (proposals[p].voteCount > winningVoteCount) {
                 winningVoteCount = proposals[p].voteCount;
-                winningProposal = p;
+                _winningProposal = p;
             }
         }
     }
@@ -149,8 +149,8 @@ contract ColorDecision {
     // of the winner contained in the proposals array and then
     // returns the name of the winner
     function winnerName() public view
-            returns (bytes32 winnerName)
+            returns (bytes32 _winnerName)
     {
-        winnerName = proposals[winningProposal()].name;
+        _winnerName = proposals[winningProposal()].name;
     }
 }

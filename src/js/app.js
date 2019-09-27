@@ -8,6 +8,9 @@ App = {
 
     initWeb3: () => {
         if (typeof web3 !== 'undefined') {
+            if(window.ethereum) {
+                ethereum.enable().then();
+            }
             App.web3Provider = web3.currentProvider;
             web3 = new Web3(web3.currentProvider);
         } else {
@@ -116,22 +119,27 @@ App = {
 
     handleWinner: () => {
         var outputWinner = $('.output-winner');
-
         App.contracts.ColorDecision.deployed()
             .then((instance) => {
-
                 contractInstance = instance;
-
                 return contractInstance.hasVotes();
             }).then((hasVotes) => {
                 if (hasVotes) {
-                    return contractInstance.winnerName()
-                        .then((colorWinner) => {
+                    return contractInstance.winningProposal()
+                        .then((winningProposal) => {
+                            return contractInstance.proposals(winningProposal)
+                        }).then((proposal) => {
+                            var colorWinner = proposal[0]
                             colorWinner = web3.toAscii(colorWinner).replace(/\u0000/g, '')
                             outputWinner.css('color', colorWinner).text(`${colorWinner.toUpperCase()} is winner!`);
-                            let winnerHtml = `<span></span><button style="background-color:${colorWinner}; height:200px;width:200px;" class="btn btn-default btn-send proposal" id="${colorWinner}" name="${colorWinner}" type="button">${colorWinner.toUpperCase()}</button>`
+                            let winnerHtml = `<div>
+                                                <span></span>
+                                                <button style="background-color:${colorWinner}; height:200px;width:200px;" class="btn btn-default btn-send proposal" id="${colorWinner}" name="${colorWinner}" type="button">${colorWinner.toUpperCase()}</button>
+                                                <p>Votes: ${proposal[1].toNumber()}</p>
+                                            </div>`
                             $('.winner').html(winnerHtml)
-                        });
+                        })
+                        ;
                 } else {
                     outputWinner.css('color', 'black').text(`No has votes!`);
                 }
@@ -165,6 +173,7 @@ App = {
                                 (proposal) => {
                                     let color = web3.toAscii(proposal[0]).replace(/\u0000/g, '')
                                     let votes = proposal[1]
+                                    console.log(`votes ${color}`, votes.toNumber())
                                     let colorHtml = `<span></span><button style="background-color:${color}; height:200px;width:200px;" class="btn btn-default btn-send proposal" id="${color}" name="${color}" type="button">${color.toUpperCase()}</button>`
                                     colorsHtml += colorHtml
                                     $('.proposals').html(colorsHtml);

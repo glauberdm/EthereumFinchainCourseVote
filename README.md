@@ -1,8 +1,11 @@
 # Ethereum Finchain Course - Voting Smart Contract
 
-## Projeto NodeJS e Truffle
+### Dependências
 
-### Start DApp
+* [NodeJS](https://nodejs.org/en/)
+* [Truffle](https://www.trufflesuite.com)
+
+### Start Dapp
 No console, no diretório do projeto:
 
 #### Instalando dependências
